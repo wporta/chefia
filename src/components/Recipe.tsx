@@ -1,10 +1,10 @@
+import ReactMarkdown from 'react-markdown';
+
 export default function Recipe({ recipe }) {
   return (
-    <section>
+    <section className="suggested-recipe-container">
       <h2>Recipe</h2>
-      <article>
-        <p>{recipe}</p>
-      </article>
+      <ReactMarkdown>{recipe}</ReactMarkdown>
     </section>
   );
 }
