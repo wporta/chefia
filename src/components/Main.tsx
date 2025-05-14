@@ -5,7 +5,7 @@ import loading from '../assets/loading.gif';
 import Welcome from './Welcome';
 
 export default function Main() {
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState<string[]>([]);
   const [recipe, setRecipe] = useState('');
   const [showRecipe, setShowRecipe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +35,7 @@ export default function Main() {
   }
 
   function addIngredient(formData: FormData) {
-    const newIngredient = formData.get('ingredient');
+    const newIngredient = formData.get('ingredient') as string;
     if (!newIngredient) return;
     if (!ingredients.includes(newIngredient)) {
       setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);

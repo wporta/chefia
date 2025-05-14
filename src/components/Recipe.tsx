@@ -1,6 +1,11 @@
 import ReactMarkdown from 'react-markdown';
 
-export default function Recipe({ recipe, newRecipe }) {
+type RecipeProps = {
+  recipe: string;
+  newRecipe: () => void;
+};
+
+export default function Recipe({ recipe, newRecipe }: RecipeProps) {
   return (
     <>
       <section className="suggested-recipe-container">

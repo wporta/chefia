@@ -1,4 +1,12 @@
-export default function Ingredients({ ingredients, handleGetRecipe }) {
+type IngredientsProps = {
+  ingredients: string[];
+  handleGetRecipe: () => void;
+};
+
+export default function Ingredients({
+  ingredients,
+  handleGetRecipe,
+}: IngredientsProps) {
   const ingredientListItems = ingredients.map((ingredient) => (
     <li key={ingredient}>{ingredient}</li>
   ));
