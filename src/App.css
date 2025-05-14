@@ -47,6 +47,7 @@ main {
   max-width: 80%;
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .add-ingredient-form {
@@ -103,7 +104,8 @@ main {
   line-height: 20px;
 }
 
-.get-recipe-container > button {
+.get-recipe-container > button,
+.new-recipe-button {
   font-family: Inter, sans-serif;
   border-radius: 6px;
   border: none;
@@ -120,6 +122,13 @@ main {
   line-height: 28px;
   font-size: 1.125rem;
   font-weight: 400;
+}
+
+.new-recipe-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .welcome {
@@ -149,6 +158,14 @@ footer {
 .loading {
   width: 100%;
   margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.help-msg {
+  font-style: italic;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;

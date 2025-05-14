@@ -9,7 +9,7 @@ export default function Ingredients({ ingredients, handleGetRecipe }) {
       <ul className="ingredients-list" aria-live="polite">
         {ingredientListItems}
       </ul>
-      {ingredientListItems.length > 3 ? (
+      {ingredientListItems.length > 2 ? (
         <div className="get-recipe-container">
           <div>
             <h3>Ready for a recipe?</h3>
