@@ -8,6 +8,7 @@ export default function Welcome() {
         seconds! 🤖✨
       </p>
       <p> No stress, no waste — just yummy ideas made for you! 😋🍽️</p>
+      <hr />
     </div>
   );
 }

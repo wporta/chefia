@@ -5,7 +5,7 @@ import loading from '../assets/loading.gif';
 import Welcome from './Welcome';
 
 export default function Main() {
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState<string[]>([]);
   const [recipe, setRecipe] = useState('');
   const [showRecipe, setShowRecipe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,9 +35,11 @@ export default function Main() {
   }
 
   function addIngredient(formData: FormData) {
-    const newIngredient = formData.get('ingredient');
+    const newIngredient = formData.get('ingredient') as string;
     if (!newIngredient) return;
-    setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+    if (!ingredients.includes(newIngredient)) {
+      setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+    }
   }
 
   async function handleGetRecipe() {
@@ -46,18 +48,28 @@ export default function Main() {
     setShowRecipe((prevState) => !prevState);
   }
 
+  function handleNewRecipe() {
+    setShowRecipe((prevState) => !prevState);
+    setRecipe('');
+  }
+
   return (
     <main>
       <Welcome />
-      <form className="add-ingredient-form" action={addIngredient}>
-        <input
-          aria-label="Add ingredient"
-          type="text"
-          placeholder="e.g. oregano"
-          name="ingredient"
-        />
-        <button>Add Ingredient</button>
-      </form>
+      {!showRecipe ? (
+        <>
+          <form className="add-ingredient-form" action={addIngredient}>
+            <input
+              aria-label="Add ingredient"
+              type="text"
+              placeholder="e.g. oregano"
+              name="ingredient"
+            />
+            <button>Add Ingredient</button>
+          </form>
+          <p className="help-msg">Enter a least 3 ingredients, one by one.</p>
+        </>
+      ) : null}
 
       {ingredients.length > 0 ? (
         <Ingredients
@@ -73,7 +85,9 @@ export default function Main() {
           </span>
         </div>
       ) : null}
-      {showRecipe ? <Recipe recipe={recipe} /> : null}
+      {showRecipe ? (
+        <Recipe recipe={recipe} newRecipe={handleNewRecipe} />
+      ) : null}
     </main>
   );
 }

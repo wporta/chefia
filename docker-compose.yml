@@ -1,0 +1,18 @@
+services:
+  chefia:
+    container_name: chefia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:80'
+    networks:
+      - nginx-proxy
+    environment:
+      LETSENCRYPT_HOST: chefia.wporta.org
+      VIRTUAL_HOST: chefia.wporta.org
+
+networks:
+  nginx-proxy:
+    name: nginx-proxy
+    external: true
