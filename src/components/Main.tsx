@@ -13,7 +13,7 @@ export default function Main() {
   async function getRecipe() {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3333/getrecipe', {
+      const response = await fetch('https://chefia-api.wporta.org/getrecipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
