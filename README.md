@@ -1,50 +1,107 @@
-# React + TypeScript + Vite
+# 👨‍🍳 Chefia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Chefia** is a modern web application designed to streamline and enhance the management of culinary operations. Built with a robust tech stack, it offers a responsive and efficient platform for chefs, kitchen staff, and restaurant managers to collaborate seamlessly.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React + TypeScript
+- **Build Tool**: Vite
+- **Containerization**: Docker & Docker Compose
+- **Package Manager**: pnpm
+- **Linting & Formatting**:
+  - ESLint
+  - Prettier
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+chefia/
+├── public/                 # Static assets
+├── src/                    # Source code
+│   ├── components/         # Reusable UI components
+│   ├── pages/              # Application pages
+│   ├── styles/             # Styling files
+│   └── main.tsx            # Application entry point
+├── index.html              # HTML template
+├── Dockerfile              # Docker configuration
+├── docker-compose.yml      # Docker Compose setup
+├── package.json            # Project metadata and scripts
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite configuration
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🛠️ Getting Started
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [pnpm](https://pnpm.io/) (v6 or later)
+- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/wporta/chefia.git
+   cd chefia
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Start the development server**:
+
+   ```bash
+   pnpm dev
+   ```
+
+   The application will be accessible at `http://localhost:5173`.
+
+---
+
+## 🐳 Docker Deployment
+
+To run the application using Docker:
+
+1. **Build and start the containers**:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Access the application**:
+
+   Navigate to `http://localhost:5173` in your browser.
+
+---
+
+## 🧪 Scripts
+
+- `pnpm dev`: Start the development server with hot module replacement.
+- `pnpm build`: Build the application for production.
+- `pnpm lint`: Run ESLint to analyze code for potential issues.
+- `pnpm format`: Format code using Prettier.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👤 Author
+
+Developed by [Wilfredo Porta](https://wporta.org/), a passionate Software Engineer based in Managua, Nicaragua, dedicated to creating software that simplifies and enriches lives.
