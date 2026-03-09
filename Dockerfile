@@ -1,28 +1,25 @@
 # Dockerfile
 
 # Base image
-FROM node:22-alpine AS build
-
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+FROM oven/bun:1-alpine AS build
 
 # Set working directory
 WORKDIR /app
 
 # Copy project files
-COPY pnpm-lock.yaml ./
+COPY bun.lockb ./
 COPY package.json ./
 COPY tsconfig.json ./
 COPY vite.config.* ./
 
 # Install dependencies
-RUN pnpm install
+RUN bun install --frozen-lockfile
 
 # Copy source code
 COPY . .
 
 # Build the project
-RUN pnpm build
+RUN bun run build
 
 # Serve using a lightweight web server
 FROM nginx:alpine

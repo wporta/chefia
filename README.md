@@ -9,7 +9,7 @@
 - **Frontend**: React + TypeScript
 - **Build Tool**: Vite
 - **Containerization**: Docker & Docker Compose
-- **Package Manager**: pnpm
+- **Package Manager**: Bun
 - **Linting & Formatting**:
   - ESLint
   - Prettier
@@ -42,8 +42,7 @@ chefia/
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v14 or later)
-- [pnpm](https://pnpm.io/) (v6 or later)
+- [Bun](https://bun.sh/) (v1 or later)
 - [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
 
 ### Installation
@@ -58,13 +57,13 @@ Ensure you have the following installed:
 2. **Install dependencies**:
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. **Start the development server**:
 
    ```bash
-   pnpm dev
+   bun dev
    ```
 
    The application will be accessible at `http://localhost:5173`.
@@ -89,10 +88,10 @@ To run the application using Docker:
 
 ## 🧪 Scripts
 
-- `pnpm dev`: Start the development server with hot module replacement.
-- `pnpm build`: Build the application for production.
-- `pnpm lint`: Run ESLint to analyze code for potential issues.
-- `pnpm format`: Format code using Prettier.
+- `bun dev`: Start the development server with hot module replacement.
+- `bun run build`: Build the application for production.
+- `bun run lint`: Run ESLint to analyze code for potential issues.
+- `bun run format`: Format code using Prettier.
 
 ---
 
